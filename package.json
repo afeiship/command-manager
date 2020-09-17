@@ -1,8 +1,8 @@
 {
-  "name": "@feizheng/rtk-notes",
+  "name": "@feizheng/redux-toolkit",
   "version": "1.0.0",
   "description": "redux-toolkit notes.",
-  "homepage": "https://github.com/afeiship/rtk-notes",
+  "homepage": "https://github.com/afeiship/redux-toolkit",
   "author": {
     "name": "afeiship",
     "email": "1290657123@qq.com"

@@ -1,2 +1,2 @@
-# rtk-notes
+# redux-toolkit
 > redux-toolkit notes.
