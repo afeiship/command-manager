@@ -1,14 +1,19 @@
 {
-  "name": "@feizheng/redux-toolkit",
+  "name": "rtk-state-tree",
+  "homepage": "https://js.work",
   "version": "1.0.0",
-  "description": "redux-toolkit notes.",
-  "homepage": "https://github.com/afeiship/redux-toolkit",
-  "author": {
-    "name": "afeiship",
-    "email": "1290657123@qq.com"
-  },
-  "license": "MIT",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+  "description": "redux-toolkit state tree.",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {},
+  "scripts": {
+    "dev": "cd packages/example && yarn run dev",
+    "predocs": "rm -rf docs",
+    "docs": "cd packages/example && yarn run build",
+    "postdocs": "cp -R packages/example/dist docs",
+    "ln:build": "cd packages/lib && yarn run build",
+    "ln:publish": "cd packages/lib && yarn run release"
   }
 }

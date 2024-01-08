@@ -1,2 +1,2 @@
-# redux-toolkit
-> redux-toolkit notes.
+# rtk-state-tree
+> redux-toolkit state tree.
