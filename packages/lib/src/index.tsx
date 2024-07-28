@@ -43,7 +43,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
     const { commands } = this.state;
     nx.forIn(modules, (key: string, value: DefineCommandResult) => {
       const name = value.name || key;
-      value.init?.(value.commands);
+      value.init?.call(commands);
       commands[name] = value.commands;
     });
   }
