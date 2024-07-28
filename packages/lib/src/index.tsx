@@ -33,14 +33,18 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   constructor(props: ReactCommandManagerProps) {
     super(props);
     this.state = { commands: {} };
-    nx.set(nx, '$exec', this.execute);
-    if (props.debug) nx.set(nx, '__commands__', this.state.commands);
     this.initModules();
   }
 
   initModules() {
-    const { modules } = this.props;
+    const { modules, debug } = this.props;
     const { commands } = this.state;
+
+    // set global $exec method.
+    nx.set(nx, '$exec', this.execute);
+    if (debug) nx.set(nx, '__commands__', commands);
+
+    // attach commands to state.
     nx.forIn(modules, (key: string, value: DefineCommandResult) => {
       const name = value.name || key;
       value.init?.call(commands);
