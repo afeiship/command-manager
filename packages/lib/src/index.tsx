@@ -14,6 +14,10 @@ export type ReactCommandManagerProps = {
    */
   modules: Record<string, DefineCommandResult>;
   /**
+   * The context of command modules.
+   */
+  context?: any;
+  /**
    * If debug mode, will show more logs.
    */
   debug?: boolean
@@ -29,6 +33,11 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   static defaultProps = {
     modules: [],
   };
+
+  get ctx() {
+    const { context } = this.props;
+    return context || this.state.commands;
+  }
 
   constructor(props: ReactCommandManagerProps) {
     super(props);
@@ -47,7 +56,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
     // attach commands to state.
     nx.forIn(modules, (key: string, value: DefineCommandResult) => {
       const name = value.name || key;
-      value.init?.call(commands);
+      value.init?.call(this.ctx, commands);
       nx.set(commands, name, value.commands);
     });
   }
@@ -55,7 +64,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   execute = (path: string, ...args: any[]) => {
     const { commands } = this.state;
     const method = nx.get(commands, path) as Function | undefined;
-    return method?.call(commands, ...args);
+    return method?.call(this.ctx, commands, ...args);
   };
 
   render() {
