@@ -12,14 +12,7 @@ npm install -S @jswork/react-command-manager
 ```
 
 ## usage
-1. import css
-  ```scss
-  @import "~@jswork/react-command-manager/dist/style.css";
-
-  // or use sass
-  @import "~@jswork/react-command-manager/dist/style.scss";
-  ```
-2. import js
+> Example app
   ```js
 __GENERATE_DAPP__
   ```
