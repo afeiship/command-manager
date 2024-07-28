@@ -34,7 +34,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
     modules: [],
   };
 
-  get ctx(){
+  get ctx() {
     const { context } = this.props;
     return context || this.state.commands;
   }
@@ -56,6 +56,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
     // attach commands to state.
     nx.forIn(modules, (key: string, value: DefineCommandResult) => {
       const name = value.name || key;
+      if (commands[name]) throw new Error(`Command name "${name}" is duplicated.`);
       value.init?.call(this.ctx);
       nx.set(commands, name, value.commands);
     });
