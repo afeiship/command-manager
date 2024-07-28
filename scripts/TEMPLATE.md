@@ -19,7 +19,7 @@ yarn add @jswork/react-command-manager
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { scanVite } from '@jswork/scan-modules';
-import ReactCommandManager from '@jswork/react-command-manager/src/main';
+import ReactCommandManager from '@jswork/react-command-manager';
 
 const moduleFiles = import.meta.glob('./shared/commands/**/*.ts', { eager: true });
 const modules = scanVite(moduleFiles, {
