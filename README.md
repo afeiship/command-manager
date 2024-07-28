@@ -55,7 +55,7 @@ export default defineCommand({
 });
 ```
 
-## 3. execute a command
+> 3. execute a command
 ```jsx
 <button onClick={() => nx.$exec('posts.create')}>Create</button>
 ```
