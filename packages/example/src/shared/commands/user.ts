@@ -7,7 +7,7 @@ export default defineCommand({
       console.log('user init', this);
     },
     login() {
-      console.log('user login');
+      console.log('user login', this);
     },
   },
 });

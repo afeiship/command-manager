@@ -1,6 +1,5 @@
 import nx from '@jswork/next';
-import React, { ReactNode, Component } from 'react';
-import { CommandContext } from './context';
+import { ReactNode, Component } from 'react';
 import type { DefineCommandResult } from './define-command';
 
 const CLASS_NAME = 'react-command-manager';
@@ -35,7 +34,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
     super(props);
     this.state = { commands: {} };
     nx.set(nx, '$exec', this.execute);
-    if (props.debug) nx.set(nx, '__commands__', this.state.commands);
+    if (props.debug) nx.set(nx, '__commands__', this);
     this.initModules();
   }
 
@@ -44,22 +43,19 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
     const { commands } = this.state;
     nx.forIn(modules, (key: string, value: DefineCommandResult) => {
       const name = value.name || key;
-      value.init?.(this);
+      value.init?.(value.commands);
       commands[name] = value.commands;
     });
   }
 
   execute = (path: string, ...args: any[]) => {
-    const method = nx.get(this.state.commands, path) as Function | undefined;
-    return method?.(...args);
+    const { commands } = this.state;
+    const method = nx.get(commands, path) as Function | undefined;
+    return method?.call(commands, ...args);
   };
 
   render() {
     const { children } = this.props;
-    return (
-      <CommandContext.Provider value={{ $cmd: this.state.commands }}>
-        {children}
-      </CommandContext.Provider>
-    );
+    return children;
   }
 }

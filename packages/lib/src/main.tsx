@@ -1,6 +1,5 @@
 import ReactCommandManager from '.';
 import defineCommand from './define-command';
-import { useCommand } from './context';
 
-export { defineCommand, useCommand };
+export { defineCommand };
 export default ReactCommandManager;

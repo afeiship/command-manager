@@ -1,16 +1,11 @@
-import { useCommand } from '@jswork/react-command-manager/src/main';
 
 function App() {
-  const cmds = useCommand('user');
-  const product = useCommand('productCompare');
-  console.log('cmds: ', product);
-
   return (
     <div className="m-10 p-4 shadow bg-gray-100 text-gray-800 hover:shadow-md transition-all">
       <div className="badge badge-warning absolute right-0 top-0 m-4">
         Build Time: {BUILD_TIME}
       </div>
-      <button onClick={() => cmds.login('hello')} className="btn btn-primary">User Login</button>
+      <button onClick={() => nx.$exec('user.login')} className="btn btn-primary">User Login</button>
       <div className="y-2">
         <h3>Posts</h3>
         <nav className="x-2">
