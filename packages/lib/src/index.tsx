@@ -1,5 +1,3 @@
-// import noop from '@jswork/noop';
-// import cx from 'classnames';
 import nx from '@jswork/next';
 import React, { ReactNode, Component } from 'react';
 import { CommandContext } from './context';
@@ -15,7 +13,11 @@ export type ReactCommandManagerProps = {
   /**
    * The command modules.
    */
-  modules: Record<string, DefineCommandResult>
+  modules: Record<string, DefineCommandResult>;
+  /**
+   * If debug mode, will show more logs.
+   */
+  debug?: boolean
 };
 
 interface ReactCommandManagerState {
@@ -32,10 +34,12 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   constructor(props: ReactCommandManagerProps) {
     super(props);
     this.state = { commands: {} };
-    this.processModules();
+    nx.set(nx, '$exec', this.execute);
+    if (props.debug) nx.set(nx, '__commands__', this.state.commands);
+    this.initModules();
   }
 
-  processModules() {
+  initModules() {
     const { modules } = this.props;
     const { commands } = this.state;
     nx.forIn(modules, (key: string, value: DefineCommandResult) => {
@@ -53,7 +57,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   render() {
     const { children } = this.props;
     return (
-      <CommandContext.Provider value={{ $cmd: this.state.commands, $execute: this.execute }}>
+      <CommandContext.Provider value={{ $cmd: this.state.commands }}>
         {children}
       </CommandContext.Provider>
     );

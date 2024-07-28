@@ -1,22 +1,32 @@
-import { ReactCommandManagerCmd, useCommand } from '@jswork/react-command-manager/src/main';
-import '@jswork/react-command-manager/src/style.scss';
+import { useCommand } from '@jswork/react-command-manager/src/main';
 
 function App() {
-  const { add, remove, set } = useCommand('abc');
+  const cmds = useCommand('user');
+  const product = useCommand('productCompare');
+  console.log('cmds: ', product);
+
   return (
     <div className="m-10 p-4 shadow bg-gray-100 text-gray-800 hover:shadow-md transition-all">
       <div className="badge badge-warning absolute right-0 top-0 m-4">
         Build Time: {BUILD_TIME}
       </div>
-      <ReactCommandManagerCmd name="abc" />
-      <section className="y-2">
-        <h3 className="bg-blue-200 p-2 rounded-lg">Use Cmds</h3>
-        <nav className="actions x-2">
-          <button className="btn btn-sm btn-primary" onClick={add}>Add</button>
-          <button className="btn btn-sm btn-primary" onClick={() => remove(1)}>Remove</button>
-          <button className="btn btn-sm btn-primary" onClick={() => set([1, 2, 3])}>Set 1</button>
+      <button onClick={() => cmds.login('hello')} className="btn btn-primary">User Login</button>
+      <div className="y-2">
+        <h3>Posts</h3>
+        <nav className="x-2">
+          <button className="btn btn-sm btn-secondary" onClick={() => nx.$exec('post.create')}>New Post</button>
+          <button className="btn btn-sm btn-secondary"
+                  onClick={() => nx.$exec('post.update', { title: 'New Title' })}>Update Post
+          </button>
         </nav>
-      </section>
+      </div>
+      <div className="y-2">
+        <h3>Products</h3>
+        <nav className="x-2">
+          <button className="btn btn-sm btn-secondary" onClick={() => nx.$exec('productCompare.add')}>Add to compare</button>
+          <button className="btn btn-sm btn-secondary" onClick={() => nx.$exec('productCompare.remove')}>Remove from compare</button>
+        </nav>
+      </div>
     </div>
   );
 }

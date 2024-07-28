@@ -1,3 +1,4 @@
 interface NxStatic {
-  $execute: (path?: string, ...args: any[]) => any;
+  $exec: (path?: string, ...args: any[]) => any;
+  __commands__: Record<string, any>;
 }

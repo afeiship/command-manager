@@ -1,13 +1,12 @@
 import { defineCommand } from '@jswork/react-command-manager/src/main';
 
 export default defineCommand({
-  name: 'user',
   methods: {
-    init() {
-      console.log('user init', this);
+    create() {
+      console.log('create posts');
     },
-    login() {
-      console.log('user login');
+    update({ title }) {
+      console.log('update post', title);
     },
   },
 });
