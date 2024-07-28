@@ -1,2 +1,2 @@
-# rtk-state-tree
-> redux-toolkit state tree.
+# react-command-manager
+> React command manager.
