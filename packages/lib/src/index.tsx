@@ -34,7 +34,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
     super(props);
     this.state = { commands: {} };
     nx.set(nx, '$exec', this.execute);
-    if (props.debug) nx.set(nx, '__commands__', this);
+    if (props.debug) nx.set(nx, '__commands__', this.state.commands);
     this.initModules();
   }
 
