@@ -7,9 +7,6 @@
 [![download][download-image]][download-url]
 
 ## installation
-```shell
-npm install -S @jswork/react-command-manager
-```
 
 ```shell
 yarn add @jswork/react-command-manager
