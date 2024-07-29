@@ -1,14 +1,13 @@
-import nx from '@jswork/next';
-import { ReactNode, Component } from 'react';
+import { Component } from 'react';
 import type { DefineCommandResult } from './define-command';
 
 const CLASS_NAME = 'react-command-manager';
 
 export type ReactCommandManagerProps = {
   /**
-   * The children element.
+   * Helper of next.
    */
-  children?: ReactNode;
+  nx: any;
   /**
    * The command modules.
    */
@@ -19,11 +18,7 @@ export type ReactCommandManagerProps = {
   context?: any;
 };
 
-interface ReactCommandManagerState {
-  commands: Record<string, any>;
-}
-
-export default class ReactCommandManager extends Component<ReactCommandManagerProps, ReactCommandManagerState> {
+export default class ReactCommandManager extends Component<ReactCommandManagerProps> {
   static displayName = CLASS_NAME;
   static version = '__VERSION__';
   private readonly commands: Record<string, any>;
@@ -43,7 +38,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   }
 
   initModules() {
-    const { modules } = this.props;
+    const { modules, nx } = this.props;
     const { commands } = this;
 
     // set global $exec method.
@@ -60,6 +55,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   }
 
   executeFn = (path: string) => {
+    const { nx } = this.props;
     return nx.get(this.commands, path) as Function | undefined;
   };
 
@@ -69,7 +65,6 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   };
 
   render() {
-    const { children } = this.props;
-    return children;
+    return null;
   }
 }
