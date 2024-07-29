@@ -26,24 +26,25 @@ interface ReactCommandManagerState {
 export default class ReactCommandManager extends Component<ReactCommandManagerProps, ReactCommandManagerState> {
   static displayName = CLASS_NAME;
   static version = '__VERSION__';
+  private readonly commands: Record<string, any>;
   static defaultProps = {
     modules: [],
   };
 
   get ctx() {
     const { context } = this.props;
-    return context || this.state.commands;
+    return context || this.commands;
   }
 
   constructor(props: ReactCommandManagerProps) {
     super(props);
-    this.state = { commands: {} };
+    this.commands = {};
     this.initModules();
   }
 
   initModules() {
     const { modules } = this.props;
-    const { commands } = this.state;
+    const { commands } = this;
 
     // set global $exec method.
     nx.set(nx, '$exec', this.execute);
@@ -59,8 +60,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   }
 
   executeFn = (path: string) => {
-    const { commands } = this.state;
-    return nx.get(commands, path) as Function | undefined;
+    return nx.get(this.commands, path) as Function | undefined;
   };
 
   execute = (path: string, ...args: any[]) => {
