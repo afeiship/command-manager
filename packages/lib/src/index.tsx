@@ -51,6 +51,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
 
     // set global $exec method.
     nx.set(nx, '$exec', this.execute);
+    nx.set(nx, '$execFn', this.executeFn);
     if (debug) nx.set(nx, '__commands__', commands);
 
     // attach commands to state.
@@ -62,9 +63,13 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
     });
   }
 
-  execute = (path: string, ...args: any[]) => {
+  executeFn = (path: string) => {
     const { commands } = this.state;
-    const method = nx.get(commands, path) as Function | undefined;
+    return nx.get(commands, path) as Function | undefined;
+  };
+
+  execute = (path: string, ...args: any[]) => {
+    const method = this.executeFn(path);
     return method?.call(this.ctx, ...args);
   };
 
