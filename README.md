@@ -63,7 +63,6 @@ export default defineCommand({
 
 ## example
   ```js
-
   function App() {
     return (
       <div className="m-10 p-4 shadow bg-gray-100 text-gray-800 hover:shadow-md transition-all">
