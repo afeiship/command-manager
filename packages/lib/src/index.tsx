@@ -1,13 +1,10 @@
+import nx from '@jswork/next';
 import { Component } from 'react';
 import type { DefineCommandResult } from './define-command';
 
 const CLASS_NAME = 'react-command-manager';
 
 export type ReactCommandManagerProps = {
-  /**
-   * Helper of next.
-   */
-  nx: any;
   /**
    * The command modules.
    */
@@ -38,7 +35,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   }
 
   initModules() {
-    const { modules, nx } = this.props;
+    const { modules } = this.props;
     const { commands } = this;
 
     // set global $exec method.
@@ -55,7 +52,6 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   }
 
   executeFn = (path: string) => {
-    const { nx } = this.props;
     return nx.get(this.commands, path) as Function | undefined;
   };
 
