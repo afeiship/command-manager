@@ -1,6 +1,7 @@
 export interface DefineCommandOptions {
   name?: string;
   methods: Record<string, (...args: any[]) => any>;
+  props?: Record<string, any>;
 }
 
 export interface DefineCommandResult {
