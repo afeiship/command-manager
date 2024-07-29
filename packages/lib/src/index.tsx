@@ -17,10 +17,6 @@ export type ReactCommandManagerProps = {
    * The context of command modules.
    */
   context?: any;
-  /**
-   * If debug mode, will show more logs.
-   */
-  debug?: boolean
 };
 
 interface ReactCommandManagerState {
@@ -46,13 +42,12 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   }
 
   initModules() {
-    const { modules, debug } = this.props;
+    const { modules } = this.props;
     const { commands } = this.state;
 
     // set global $exec method.
     nx.set(nx, '$exec', this.execute);
     nx.set(nx, '$execFn', this.executeFn);
-    if (debug) nx.set(nx, '__commands__', commands);
 
     // attach commands to state.
     nx.forIn(modules, (key: string, value: DefineCommandResult) => {
@@ -65,6 +60,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
 
   executeFn = (path: string) => {
     const { commands } = this.state;
+    if(!path) throw new Error('Command path is required.');
     return nx.get(commands, path) as Function | undefined;
   };
 
