@@ -53,8 +53,8 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
     nx.forIn(modules, (key: string, value: DefineCommandResult) => {
       const name = value.name || key;
       if (commands[name]) throw new Error(`Command name "${name}" is duplicated.`);
-      value.init?.call(this.ctx);
       nx.set(commands, name, value.commands);
+      value.init?.call(this.ctx);
     });
   }
 
