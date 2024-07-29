@@ -60,7 +60,6 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
 
   executeFn = (path: string) => {
     const { commands } = this.state;
-    if(!path) throw new Error('Command path is required.');
     return nx.get(commands, path) as Function | undefined;
   };
 
