@@ -1,6 +1,6 @@
 {
   "name": "@jswork/react-command-manager",
-  "version": "1.0.0",
+  "version": "1.0.15",
   "main": "dist/main.cjs.js",
   "module": "dist/main.esm.js",
   "types": "dist/main.d.ts",
@@ -41,6 +41,7 @@
     "command",
     "design-pattern",
     "react",
-    "exec"
+    "exec",
+    "vue"
   ]
 }
