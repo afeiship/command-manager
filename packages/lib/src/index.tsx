@@ -1,4 +1,5 @@
 import nx from '@jswork/next';
+import objectPah from 'object-path';
 import { Component } from 'react';
 import type { DefineCommandResult } from './define-command';
 
@@ -37,22 +38,24 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   initModules() {
     const { modules } = this.props;
     const { commands } = this;
+    const root = typeof window === 'undefined' ? globalThis : window;
 
     // set global $exec method.
-    nx.set(nx, '$exec', this.execute);
-    nx.set(nx, '$execFn', this.executeFn);
+    objectPah.set(root, 'nx.$exec', this.execute);
+    objectPah.set(root, 'nx.$execFn', this.executeFn);
 
     // attach commands to state.
-    nx.forIn(modules, (key: string, value: DefineCommandResult) => {
+    Object.keys(modules).forEach((key: string) => {
+      const value = modules[key] as DefineCommandResult;
       const name = value.name || key;
       if (commands[name]) throw new Error(`Command name "${name}" is duplicated.`);
-      nx.set(commands, name, value.commands);
+      objectPah.set(commands, name, value.commands);
       value.init?.call(this.ctx, value.commands);
     });
   }
 
   executeFn = (path: string) => {
-    return nx.get(this.commands, path) as Function | undefined;
+    return nx.get(this.ctx, path) as Function | undefined;
   };
 
   execute = (path: string, ...args: any[]) => {
