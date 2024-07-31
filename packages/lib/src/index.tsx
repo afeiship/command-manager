@@ -1,4 +1,3 @@
-import nx from '@jswork/next';
 import objectPah from 'object-path';
 import { Component } from 'react';
 import type { DefineCommandResult } from './define-command';
@@ -55,7 +54,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
   }
 
   executeFn = (path: string) => {
-    return nx.get(this.ctx, path) as Function | undefined;
+    return objectPah.get(this.ctx, path) as Function | undefined;
   };
 
   execute = (path: string, ...args: any[]) => {
