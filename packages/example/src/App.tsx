@@ -32,7 +32,7 @@ function App() {
           </button>
         </nav>
       </div>
-      <ReactCommandManager nx={nx} modules={modules} />
+      <ReactCommandManager modules={modules} />
     </div>
   );
 }
