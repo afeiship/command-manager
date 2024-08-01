@@ -19,7 +19,11 @@ export default class CommandManager {
 
   get ctx() {
     const { context } = this.options;
-    return context || this.commands;
+    const $ctx = context || null;
+    return {
+      $ctx,
+      ...this.commands,
+    };
   }
 
   constructor(options: CommandManagerOptions) {
