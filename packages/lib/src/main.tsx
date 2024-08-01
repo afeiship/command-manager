@@ -1,5 +1,10 @@
 import ReactCommandManager from './react';
-import CommandManager from './command-manager';
-import defineCommand from './define-command';
+import CommandManager, { CommandManagerOptions } from './command-manager';
+import defineCommand, { DefineCommandResult, DefineCommand, DefineCommandOptions } from './define-command';
 
-export { ReactCommandManager, defineCommand, CommandManager };
+export {
+  // widgets
+  ReactCommandManager, defineCommand, CommandManager,
+  // types
+  DefineCommandResult, DefineCommand, DefineCommandOptions, CommandManagerOptions,
+};
