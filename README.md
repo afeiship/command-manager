@@ -63,6 +63,14 @@ export default defineCommand({
 
 ## example
   ```js
+  import { scanVite } from '@jswork/scan-modules';
+  import nx from '@jswork/next';
+  import { ReactCommandManager } from '@jswork/command-manager/main';
+
+  const moduleFiles = import.meta.glob('./shared/commands/**/*.ts', { eager: true });
+  const modules = scanVite(moduleFiles, { modules: '/commands/' });
+
+
   function App() {
     return (
       <div className="m-10 p-4 shadow bg-gray-100 text-gray-800 hover:shadow-md transition-all">
@@ -82,10 +90,14 @@ export default defineCommand({
         <div className="y-2">
           <h3>Products</h3>
           <nav className="x-2">
-            <button className="btn btn-sm btn-secondary" onClick={() => nx.$exec('productCompare.add')}>Add to compare</button>
-            <button className="btn btn-sm btn-secondary" onClick={() => nx.$exec('productCompare.remove')}>Remove from compare</button>
+            <button className="btn btn-sm btn-secondary" onClick={() => nx.$exec('productCompare.add')}>Add to compare
+            </button>
+            <button className="btn btn-sm btn-secondary" onClick={() => nx.$exec('productCompare.remove')}>Remove from
+              compare
+            </button>
           </nav>
         </div>
+        <ReactCommandManager modules={modules} />
       </div>
     );
   }
