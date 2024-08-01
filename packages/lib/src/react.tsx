@@ -13,7 +13,6 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
     modules: [],
   };
 
-
   constructor(props: ReactCommandManagerProps) {
     super(props);
     this.commandManager = new CommandManager(props);
