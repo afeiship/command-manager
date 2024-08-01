@@ -1,9 +1,9 @@
-# react-command-manager
+# command-manager
 > React command manager.
 
 ## installation
 ```shell
-yarn add @jswork/react-command-manager
+yarn add @jswork/command-manager
 ```
 
 ## usage
@@ -13,7 +13,7 @@ yarn add @jswork/react-command-manager
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { scanVite } from '@jswork/scan-modules';
-import ReactCommandManager from '@jswork/react-command-manager/src/main';
+import ReactCommandManager from '@jswork/command-manager/src/main';
 
 const moduleFiles = import.meta.glob('./shared/commands/**/*.ts', { eager: true });
 const modules = scanVite(moduleFiles, { modules: '/commands/', });
@@ -39,7 +39,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 > 2. define a command
 ```jsx
-import { defineCommand } from '@jswork/react-command-manager';
+import { defineCommand } from '@jswork/command-manager';
 
 export default defineCommand({
   methods: {

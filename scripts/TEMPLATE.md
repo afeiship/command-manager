@@ -1,4 +1,4 @@
-# react-command-manager
+# command-manager
 > React command manager.
 
 [![version][version-image]][version-url]
@@ -9,7 +9,7 @@
 ## installation
 
 ```shell
-yarn add @jswork/react-command-manager
+yarn add @jswork/command-manager
 ```
 
 ## usage
@@ -19,7 +19,7 @@ yarn add @jswork/react-command-manager
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { scanVite } from '@jswork/scan-modules';
-import ReactCommandManager from '@jswork/react-command-manager';
+import ReactCommandManager from '@jswork/command-manager';
 
 const moduleFiles = import.meta.glob('./shared/commands/**/*.ts', { eager: true });
 const modules = scanVite(moduleFiles, {
@@ -38,7 +38,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 > 2. define a command
 ```jsx
-import { defineCommand } from '@jswork/react-command-manager';
+import { defineCommand } from '@jswork/command-manager';
 
 export default defineCommand({
   methods: {
@@ -67,19 +67,19 @@ __GENERATE_DAPP__
   ```
 
 ## preview
-- https://afeiship.github.io/react-command-manager/
+- https://afeiship.github.io/command-manager/
 
 ## license
-Code released under [the MIT license](https://github.com/afeiship/react-command-manager/blob/master/LICENSE.txt).
+Code released under [the MIT license](https://github.com/afeiship/command-manager/blob/master/LICENSE.txt).
 
-[version-image]: https://img.shields.io/npm/v/@jswork/react-command-manager
-[version-url]: https://npmjs.org/package/@jswork/react-command-manager
+[version-image]: https://img.shields.io/npm/v/@jswork/command-manager
+[version-url]: https://npmjs.org/package/@jswork/command-manager
 
-[license-image]: https://img.shields.io/npm/l/@jswork/react-command-manager
-[license-url]: https://github.com/afeiship/react-command-manager/blob/master/LICENSE.txt
+[license-image]: https://img.shields.io/npm/l/@jswork/command-manager
+[license-url]: https://github.com/afeiship/command-manager/blob/master/LICENSE.txt
 
-[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/react-command-manager
-[size-url]: https://github.com/afeiship/react-command-manager/blob/master/dist/react-command-manager.min.js
+[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/command-manager
+[size-url]: https://github.com/afeiship/command-manager/blob/master/dist/command-manager.min.js
 
-[download-image]: https://img.shields.io/npm/dm/@jswork/react-command-manager
-[download-url]: https://www.npmjs.com/package/@jswork/react-command-manager
+[download-image]: https://img.shields.io/npm/dm/@jswork/command-manager
+[download-url]: https://www.npmjs.com/package/@jswork/command-manager

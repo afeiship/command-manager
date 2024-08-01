@@ -19,7 +19,7 @@ nx.declare({
 
       nx.replaceInFile('README.md', [
         ['__GENERATE_DAPP__', indentString(docApp, 2).trimEnd()],
-        ['@jswork/react-command-manager/src', '@jswork/react-command-manager'],
+        ['@jswork/command-manager/src', '@jswork/command-manager'],
         ['src/style.scss', 'dist/style.scss'],
       ]);
     },

@@ -1,6 +1,6 @@
 import { scanVite } from '@jswork/scan-modules';
 import nx from '@jswork/next';
-import ReactCommandManager from '@jswork/react-command-manager/src/main';
+import { ReactCommandManager } from '@jswork/command-manager/src/main';
 
 const moduleFiles = import.meta.glob('./shared/commands/**/*.ts', { eager: true });
 const modules = scanVite(moduleFiles, { modules: '/commands/' });

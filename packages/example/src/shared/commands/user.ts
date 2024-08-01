@@ -1,4 +1,4 @@
-import { defineCommand } from '@jswork/react-command-manager/src/main';
+import { defineCommand } from '@jswork/command-manager/src/main';
 
 export default defineCommand({
   name: 'user',
