@@ -1,5 +1,5 @@
-# react-component-mono-lib
-> A react component library template for monorepo.
+# react-command-manager
+> React command manager.
 
 [![version][version-image]][version-url]
 [![license][license-image]][license-url]
@@ -12,17 +12,7 @@ npm install -S @jswork/react-command-manager
 ```
 
 ## usage
-1. import css
-  ```scss
-  @import "~@jswork/react-component-mono-lib/dist/style.css";
-
-  // or use sass
-  @import "~@jswork/react-component-mono-lib/dist/style.scss";
-
-  // customize your styles:
-  $react-component-mono-lib-options: ()
-  ```
-2. import js
+import js
   ```js
 __GENERATE_DAPP__
   ```

@@ -12,17 +12,7 @@ npm install -S @jswork/react-command-manager
 ```
 
 ## usage
-1. import css
-  ```scss
-  @import "~@jswork/react-component-mono-lib/dist/style.css";
-
-  // or use sass
-  @import "~@jswork/react-component-mono-lib/dist/style.scss";
-
-  // customize your styles:
-  $react-component-mono-lib-options: ()
-  ```
-2. import js
+import js
   ```js
   import React from 'react';
   import { scanVite } from '@jswork/scan-modules';
