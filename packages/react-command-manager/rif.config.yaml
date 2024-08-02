@@ -1,0 +1,12 @@
+name: replace-in-files
+files:
+  - 'src/**/*.ts'
+  - 'src/**/*.tsx'
+  - 'src/**/*.scss'
+  - '.*'
+  - '*'
+  - '!node_modules'
+  - '!rif.config.yaml'
+replacements:
+  - from: /react-command-manager/g
+    to: '${PROJECT_NAME}'

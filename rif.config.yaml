@@ -1,15 +1,11 @@
-name: react-component-library
+name: replace-in-files
 files:
-  - 'packages/**/*.*'
-  - 'scripts/*'
   - '.*'
   - '*'
   - '!node_modules'
   - '!rif.config.yaml'
 replacements:
-  - from: /react-component-library-description/g
+  - from: /monorepo-lerna-description/g
     to: React command manager.
-  - from: /react-component-library/g
+  - from: /monorepo-lerna/g
     to: ${PROJECT_NAME}
-  - from: /Anonymous/g
-    to: ReactCommandManager
