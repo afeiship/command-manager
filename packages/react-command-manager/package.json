@@ -1,7 +1,7 @@
 {
   "name": "@jswork/react-command-manager",
   "homepage": "https://js.work",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "React command manager.",
   "license": "MIT",
   "type": "module",
@@ -75,7 +75,7 @@
     "vite-plugin-pwa": "^0.19.8"
   },
   "dependencies": {
-    "@jswork/command-manager": "^1.0.5"
+    "@jswork/command-manager": "^1.0.6"
   },
   "publishConfig": {
     "access": "public",
