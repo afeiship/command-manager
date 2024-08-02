@@ -19,6 +19,7 @@ export default class ReactCommandManager extends Component<ReactCommandManagerPr
     this.commandManager.init();
   }
 
+  // empty render
   render() {
     return null;
   }
