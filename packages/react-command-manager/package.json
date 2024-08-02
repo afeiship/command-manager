@@ -1,7 +1,7 @@
 {
   "name": "@jswork/react-command-manager",
   "homepage": "https://js.work",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "React command manager.",
   "license": "MIT",
   "type": "module",
@@ -80,5 +80,6 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  }
+  },
+  "gitHead": "dc4382f6e3661e4e14551c57bd6236642ba014c5"
 }

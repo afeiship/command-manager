@@ -1,6 +1,6 @@
 {
   "name": "@jswork/command-manager",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "Core command manager.",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
@@ -35,5 +35,6 @@
   },
   "dependencies": {
     "object-path": "^0.11.8"
-  }
+  },
+  "gitHead": "dc4382f6e3661e4e14551c57bd6236642ba014c5"
 }
