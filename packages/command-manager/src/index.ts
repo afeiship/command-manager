@@ -4,5 +4,5 @@ import defineCommand, { DefineCommandResult, DefineCommand, DefineCommandOptions
 // export types
 export type { CommandManagerOptions, DefineCommandResult, DefineCommand, DefineCommandOptions };
 
-// export modules, no default
+// export modules
 export { CommandManager, defineCommand };
