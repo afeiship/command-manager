@@ -75,8 +75,7 @@
     "vite-plugin-pwa": "^0.19.8"
   },
   "dependencies": {
-    "@jswork/noop": "^1.0.0",
-    "classnames": "^2.5.1"
+    "@jswork/command-manager": "^1.0.0"
   },
   "publishConfig": {
     "access": "public",

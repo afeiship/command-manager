@@ -18,7 +18,7 @@ export default [
       format: 'umd',
       exports: 'named',
       sourcemap: false,
-      name: 'ReactComponentMonoLibComponent',
+      name: 'ReactCommandManager',
       globals: {
         '@jswork/noop': 'noop',
         'prop-types': 'PropTypes',

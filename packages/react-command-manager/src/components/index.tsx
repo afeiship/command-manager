@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { CommandManager, CommandManagerOptions } from '@jswork/command-manager';
 
-const CLASS_NAME = 'command-manager';
+const CLASS_NAME = 'react-command-manager';
 
 export type ReactCommandManagerProps = CommandManagerOptions
 
