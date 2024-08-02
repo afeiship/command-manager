@@ -1,5 +1,5 @@
 {
-  "name": "monorepo-lerna",
+  "name": "command-manager",
   "private": true,
   "workspaces": {
     "packages": [

@@ -1,8 +1,8 @@
 {
-  "name": "react-component-mono-lib",
+  "name": "@jswork/react-command-manager",
   "homepage": "https://js.work",
-  "version": "1.0.0",
-  "description": "A react component library template for monorepo.",
+  "version": "1.0.5",
+  "description": "React command manager.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

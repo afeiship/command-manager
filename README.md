@@ -1,2 +1,2 @@
-# monorepo-lerna
-> monorepo-lerna-description
+# command-manager
+> React command manager.

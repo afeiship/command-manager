@@ -1,12 +1,11 @@
-const fs = require('fs');
-const indentString = require('indent-string');
-
-require('@jswork/next-replace-in-file');
+import fs from 'fs';
+import indentString from 'indent-string';
+import '@jswork/next-replace-in-file';
 
 nx.declare({
   statics: {
     init: function () {
-      var instance = new this();
+      const instance = new this();
       instance.reset();
       instance.replace();
     }

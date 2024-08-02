@@ -8,5 +8,7 @@ files:
   - '!node_modules'
   - '!rif.config.yaml'
 replacements:
-  - from: /react-command-manager/g
+  - from: /react-component-mono-lib/g
     to: '${PROJECT_NAME}'
+  - from: A react component library template for monorepo.
+    to: React command manager.
