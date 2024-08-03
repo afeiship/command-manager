@@ -1,4 +1,4 @@
-import { defineCommand } from '../../src';
+import { defineCommand } from '@jswork/command-manager';
 
 export default defineCommand({
   name: 'gun',
