@@ -12,6 +12,8 @@ export type CommandManagerOptions = {
   context?: any;
 };
 
+export type ExecuteTarget = Function | { execute: Function } | undefined;
+
 
 export default class CommandManager {
   private readonly commands: Record<string, any>;
@@ -51,11 +53,13 @@ export default class CommandManager {
   }
 
   executeFn = (path: string) => {
-    return objectPath.get(this.ctx, path) as Function | undefined;
+    return objectPath.get(this.ctx, path) as ExecuteTarget;
   };
 
   execute = (path: string, ...args: any[]) => {
     const method = this.executeFn(path);
-    return method?.call(this.ctx, ...args);
+    const onlyExecute = typeof method === 'object';
+    const execTarget = onlyExecute ? method.execute : method;
+    return execTarget?.call(this.ctx, ...args);
   };
 }
